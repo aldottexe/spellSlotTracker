@@ -216,8 +216,14 @@
 <!-- once per days -->
 <section>
   <div class="m0a">
-    {#each cd.onePerDays as spell}
+    {#each cd.onePerDays as spell, index}
       <div class="flex" transition:fly={{ duration: 100, y: -10 }}>
+        <button
+          onclick={() => {
+            cd.onePerDays.splice(index, 1);
+            save();
+          }}
+        >-</button>
         <input
           class="box field"
           type="text"
